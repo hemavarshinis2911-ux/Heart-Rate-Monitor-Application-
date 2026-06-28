@@ -1,17 +1,27 @@
 function checkHeartRate() {
-    let heartRate = document.getElementById("heartRate").value;
+    let bpm = document.getElementById("heartRate").value;
     let result = document.getElementById("result");
 
-    if (heartRate === "") {
-        result.innerHTML = "Please enter your heart rate.";
+    if (bpm === "" || bpm <= 0) {
+        result.innerHTML = "Please enter a valid heart rate.";
+        result.style.color = "black";
+        return;
+    }
+
+    bpm = Number(bpm);
+
+    if (bpm < 60) {
+        result.innerHTML = "Low Heart Rate (Bradycardia)";
+        result.style.color = "blue";
+        alert("Warning: Heart rate is too low!");
     } 
-    else if (heartRate < 60) {
-        result.innerHTML = "⚠️ Low Heart Rate! Consult a doctor.";
-    } 
-    else if (heartRate > 100) {
-        result.innerHTML = "⚠️ High Heart Rate! Please take rest and consult a doctor.";
+    else if (bpm >= 60 && bpm <= 100) {
+        result.innerHTML = "Normal Heart Rate ✅";
+        result.style.color = "green";
     } 
     else {
-        result.innerHTML = "✅ Normal Heart Rate. Keep maintaining a healthy lifestyle!";
+        result.innerHTML = "High Heart Rate (Tachycardia)";
+        result.style.color = "red";
+        alert("Warning: Heart rate is too high!");
     }
 }
