@@ -2,10 +2,9 @@ function checkHeartRate() {
     let bpm = document.getElementById("heartRate").value;
     let result = document.getElementById("result");
 
-    // Convert to number
     bpm = Number(bpm);
 
-    if (bpm === 0 || isNaN(bpm)) {
+    if (isNaN(bpm) || bpm <= 0) {
         result.innerHTML = "Please enter a valid heart rate.";
         result.style.color = "black";
         return;
@@ -16,7 +15,7 @@ function checkHeartRate() {
         result.style.color = "blue";
         alert("⚠ Warning: Heart rate is too low!");
     } 
-    else if (bpm >= 60 && bpm <= 100) {
+    else if (bpm <= 100) {
         result.innerHTML = "Normal Heart Rate ✅";
         result.style.color = "green";
     } 
