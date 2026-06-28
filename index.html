@@ -6,6 +6,7 @@
     <title>Heart Rate Monitor</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="container">
@@ -20,7 +21,17 @@
         <h2 id="result"></h2>
     </div>
 
-    <!-- ✅ Correct linking -->
+    <!-- ✅ EmailJS library -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <!-- ✅ Initialize EmailJS -->
+    <script>
+        (function(){
+            emailjs.init("YOUR_PUBLIC_KEY");  <!-- 🔴 REPLACE THIS -->
+        })();
+    </script>
+
+    <!-- ✅ Your JS -->
     <script src="script.js"></script>
 
 </body>
