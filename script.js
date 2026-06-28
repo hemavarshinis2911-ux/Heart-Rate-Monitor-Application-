@@ -10,44 +10,48 @@ function checkHeartRate() {
         return;
     }
 
-    // LOW HEART RATE
+    // LOW
     if (bpm < 60) {
         result.innerHTML = `
-            <p style="color:blue;"><b>Low Heart Rate (Bradycardia)</b></p>
-            <p>💡 Suggestion:</p>
-            <ul>
-                <li>Consult a doctor if feeling dizzy or weak</li>
-                <li>Stay hydrated</li>
-                <li>Avoid sudden movements</li>
-            </ul>
+            <div style="color:blue;">
+                <h2>Low Heart Rate (Bradycardia)</h2>
+                <p><b>Suggestions:</b></p>
+                <ul>
+                    <li>Consult a doctor if symptoms occur</li>
+                    <li>Stay hydrated</li>
+                    <li>Avoid sudden standing or movement</li>
+                </ul>
+            </div>
         `;
-        alert("⚠ Warning: Heart rate is too low!");
-    } 
-    
-    // NORMAL HEART RATE
+    }
+
+    // NORMAL
     else if (bpm <= 100) {
         result.innerHTML = `
-            <p style="color:green;"><b>Normal Heart Rate ✅</b></p>
-            <p>💡 Suggestion:</p>
-            <ul>
-                <li>Maintain a healthy lifestyle</li>
-                <li>Exercise regularly</li>
-                <li>Eat a balanced diet</li>
-            </ul>
+            <div style="color:green;">
+                <h2>Normal Heart Rate ✅</h2>
+                <p><b>Suggestions:</b></p>
+                <ul>
+                    <li>Maintain a healthy diet</li>
+                    <li>Exercise regularly</li>
+                    <li>Continue good habits</li>
+                </ul>
+            </div>
         `;
-    } 
-    
-    // HIGH HEART RATE
+    }
+
+    // HIGH
     else {
         result.innerHTML = `
-            <p style="color:red;"><b>High Heart Rate (Tachycardia)</b></p>
-            <p>💡 Suggestion:</p>
-            <ul>
-                <li>Take rest and relax</li>
-                <li>Avoid caffeine and stress</li>
-                <li>Consult a doctor if it continues</li>
-            </ul>
+            <div style="color:red;">
+                <h2>High Heart Rate (Tachycardia)</h2>
+                <p><b>Suggestions:</b></p>
+                <ul>
+                    <li>Take rest immediately</li>
+                    <li>Avoid caffeine and stress</li>
+                    <li>Consult a doctor if it continues</li>
+                </ul>
+            </div>
         `;
-        alert("⚠ Warning: Heart rate is too high!");
     }
 }
