@@ -7,13 +7,13 @@ function checkHeartRate() {
     let status = "";
     let message = "";
 
-    // validation
+    // ✅ Validation
     if (isNaN(bpm) || bpm <= 0) {
         result.innerHTML = "Please enter a valid heart rate.";
         return;
     }
 
-    // LOW
+    // ✅ LOW
     if (bpm < 60) {
         status = "Low Heart Rate (Bradycardia)";
         message = "Patient has LOW heart rate. Consult a doctor.";
@@ -28,7 +28,7 @@ function checkHeartRate() {
         `;
     }
 
-    // NORMAL
+    // ✅ NORMAL
     else if (bpm <= 100) {
         status = "Normal Heart Rate";
         message = "Patient heart rate is normal.";
@@ -39,7 +39,7 @@ function checkHeartRate() {
         `;
     }
 
-    // HIGH
+    // ✅ HIGH
     else {
         status = "High Heart Rate (Tachycardia)";
         message = "⚠ ALERT: High heart rate. Immediate attention required.";
@@ -54,15 +54,18 @@ function checkHeartRate() {
         `;
     }
 
-    // ✅ SEND EMAIL
+    // ✅ ✅ SEND EMAIL (VERY IMPORTANT PART)
     emailjs.send("service_gpyijio", "template_t9qrqlk", {
         heart_rate: bpm,
         status: status,
         message: message
     })
     .then(function(response) {
-        console.log("Email sent ✅", response);
-    }, function(error) {
-        console.log("Email failed ❌", error);
+        console.log("✅ Email sent successfully!", response);
+        alert("✅ Alert email sent to caretaker!");
+    })
+    .catch(function(error) {
+        console.log("❌ Email failed:", error);
+        alert("❌ Email failed. Check console.");
     });
 }
