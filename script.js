@@ -54,11 +54,13 @@ function checkHeartRate() {
         `;
     }
 
-    // ✅ ✅ SEND EMAIL (VERY IMPORTANT PART)
+    // ✅ ✅ SEND EMAIL (FIXED)
     emailjs.send("service_gpyijio", "template_t9qrqlk", {
         heart_rate: bpm,
         status: status,
-        message: message
+        message: message,
+        name: "Heart Monitor System",     // ✅ REQUIRED
+        email: "noreply@test.com"         // ✅ REQUIRED
     })
     .then(function(response) {
         console.log("✅ Email sent successfully!", response);
@@ -69,3 +71,4 @@ function checkHeartRate() {
         alert("❌ Email failed. Check console.");
     });
 }
+``
