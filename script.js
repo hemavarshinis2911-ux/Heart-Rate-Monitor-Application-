@@ -16,7 +16,7 @@ function checkHeartRate() {
     if (bpm < 60) {
         result.innerHTML = "Low Heart Rate (Bradycardia)";
         result.style.color = "blue";
-        alert("⚠ Warning: Heart rate is too low!");
+        alert("Warning: Heart rate is too low!");
     } 
     else if (bpm <= 100) {
         result.innerHTML = "Normal Heart Rate ✅";
@@ -25,6 +25,6 @@ function checkHeartRate() {
     else {
         result.innerHTML = "High Heart Rate (Tachycardia)";
         result.style.color = "red";
-        alert("⚠ Warning: Heart rate is too high!");
+        alert("Warning: Heart rate is too high!");
     }
 }
