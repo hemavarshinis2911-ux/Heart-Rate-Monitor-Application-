@@ -7,13 +7,13 @@ function checkHeartRate() {
     let status = "";
     let message = "";
 
-    // ✅ Validation
+    // ✅ Validate input
     if (isNaN(bpm) || bpm <= 0) {
         result.innerHTML = "Please enter a valid heart rate.";
         return;
     }
 
-    // ✅ LOW
+    // ✅ LOW HEART RATE
     if (bpm < 60) {
         status = "Low Heart Rate (Bradycardia)";
         message = "Patient has LOW heart rate. Consult a doctor.";
@@ -28,7 +28,7 @@ function checkHeartRate() {
         `;
     }
 
-    // ✅ NORMAL
+    // ✅ NORMAL HEART RATE
     else if (bpm <= 100) {
         status = "Normal Heart Rate";
         message = "Patient heart rate is normal.";
@@ -39,7 +39,7 @@ function checkHeartRate() {
         `;
     }
 
-    // ✅ HIGH
+    // ✅ HIGH HEART RATE
     else {
         status = "High Heart Rate (Tachycardia)";
         message = "⚠ ALERT: High heart rate. Immediate attention required.";
@@ -54,13 +54,16 @@ function checkHeartRate() {
         `;
     }
 
-    // ✅ ✅ SEND EMAIL (FIXED)
+    // ✅ ✅ SEND EMAIL (FULL FIX)
     emailjs.send("service_gpyijio", "template_t9qrqlk", {
         heart_rate: bpm,
         status: status,
         message: message,
-        name: "Heart Monitor System",     // ✅ REQUIRED
-        email: "noreply@test.com"         // ✅ REQUIRED
+
+        // ✅ REQUIRED variables (fixes your error)
+        name: "Heart Monitor System",
+        email: "noreply@test.com",
+        to_email: "hemavarshinis2911@gmail.com"
     })
     .then(function(response) {
         console.log("✅ Email sent successfully!", response);
@@ -71,4 +74,3 @@ function checkHeartRate() {
         alert("❌ Email failed. Check console.");
     });
 }
-``
