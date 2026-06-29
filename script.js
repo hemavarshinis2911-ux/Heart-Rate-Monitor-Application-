@@ -17,7 +17,7 @@ function checkHeartRate() {
     // ✅ LOW HEART RATE
     if (bpm < 60) {
         status = "Low Heart Rate (Bradycardia)";
-        message = "Patient has LOW heart rate.";
+        message = "Avoid sudden movements. Eat healthy ans stay hydrated. Take light walking and consult Doctor if symptom continues";
         
         suggestions = `
 - Stay hydrated
@@ -47,7 +47,7 @@ function checkHeartRate() {
     // ✅ HIGH HEART RATE
     else {
         status = "High Heart Rate (Tachycardia)";
-        message = "⚠ ALERT: High heart rate.";
+        message = "Practice deep breathing or meditation. Drink water and reduce caffine. Take rest";
 
         suggestions = `
 - Take rest immediately
