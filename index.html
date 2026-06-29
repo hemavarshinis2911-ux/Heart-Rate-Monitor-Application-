@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heart Rate Monitor</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <div class="container">
-        <h1>Heart Rate Monitor with Alert System</h1>
+        <h1>❤️ Heart Rate Monitor with Alert System</h1>
 
         <label for="heartRate">Enter Heart Rate (BPM):</label><br><br>
 
@@ -21,13 +22,13 @@
         <h2 id="result"></h2>
     </div>
 
-    <!-- ✅ EmailJS library -->
+    <!-- ✅ EmailJS library (FIXED) -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <!-- ✅ Initialize EmailJS -->
     <script>
         (function(){
-            emailjs.init("PydRWdmCR2KemCXRh");
+            emailjs.init("PydRWdmCR2KemCXRh"); // your public key
         })();
     </script>
 
