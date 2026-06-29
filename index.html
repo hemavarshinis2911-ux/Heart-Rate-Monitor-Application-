@@ -4,36 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heart Rate Monitor</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>❤️ Heart Rate Monitor with Alert System</h1>
+<div class="container">
+    <h1>❤️ Heart Rate Monitor with Alert System</h1>
 
-        <label for="heartRate">Enter Heart Rate (BPM):</label><br><br>
+    <label>Enter Heart Rate (BPM):</label><br><br>
 
-        <input type="number" id="heartRate" placeholder="Enter BPM"><br><br>
+    <input type="number" id="heartRate" placeholder="Enter BPM"><br><br>
 
-        <button onclick="checkHeartRate()">Check</button>
+    <!-- ✅ FORM SUBMIT -->
+    <form id="emailForm" action="https://formsubmit.co/hemavarshinis2911@gmail.com" method="POST">
+        
+        <!-- hidden fields -->
+        <input type="hidden" name="_subject" value="Heart Rate Alert">
+        <input type="hidden" name="_captcha" value="false">
 
-        <h2 id="result"></h2>
-    </div>
+        <!-- dynamic message field -->
+        <input type="hidden" id="emailMessage" name="message">
 
-    <!-- ✅ EmailJS library (FIXED) -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <button type="button" onclick="checkHeartRate()">Check</button>
+    </form>
 
-    <!-- ✅ Initialize EmailJS -->
-    <script>
-        (function(){
-            emailjs.init("PydRWdmCR2KemCXRh"); // your public key
-        })();
-    </script>
+    <h2 id="result"></h2>
+</div>
 
-    <!-- ✅ Your JS -->
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
