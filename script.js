@@ -7,50 +7,83 @@ function checkHeartRate() {
 
     let status = "";
     let message = "";
+    let suggestions = ""; // ⭐ NEW
 
     if (isNaN(bpm) || bpm <= 0) {
         result.innerHTML = "Please enter a valid heart rate.";
         return;
     }
 
-    // LOW
+    // ✅ LOW HEART RATE
     if (bpm < 60) {
         status = "Low Heart Rate (Bradycardia)";
-        message = "Patient has LOW heart rate. Consult a doctor.";
+        message = "Patient has LOW heart rate.";
+        
+        suggestions = `
+- Stay hydrated
+- Avoid sudden movements
+- Consult a doctor
+        `; // ⭐
 
-        result.innerHTML = `<h2 style="color:blue;">${status}</h2>`;
+        result.innerHTML = `
+            <h2 style="color:blue;">${status}</h2>
+            <ul>
+                <li>Stay hydrated</li>
+                <li>Avoid sudden movements</li>
+                <li>Consult a doctor</li>
+            </ul>
+        `;
     }
 
-    // NORMAL
+    // ✅ NORMAL HEART RATE
     else if (bpm <= 100) {
         status = "Normal Heart Rate";
         message = "Heart rate is normal.";
 
         result.innerHTML = `<h2 style="color:green;">${status}</h2>`;
-        return; // ❌ no email for normal
+        return;
     }
 
-    // HIGH
+    // ✅ HIGH HEART RATE
     else {
         status = "High Heart Rate (Tachycardia)";
-        message = "⚠ ALERT: High heart rate. Immediate attention needed.";
+        message = "⚠ ALERT: High heart rate.";
 
-        result.innerHTML = `<h2 style="color:red;">${status}</h2>`;
+        suggestions = `
+- Take rest immediately
+- Avoid stress and caffeine
+- Consult a doctor
+        `; // ⭐
+
+        result.innerHTML = `
+            <h2 style="color:red;">${status}</h2>
+            <ul>
+                <li>Take rest immediately</li>
+                <li>Avoid stress and caffeine</li>
+                <li>Consult a doctor</li>
+            </ul>
+        `;
     }
 
-    // ✅ Create email content
+    // ✅ ✅ CREATE EMAIL WITH SUGGESTIONS ⭐
     let fullMessage = `
 🚑 Heart Rate Alert
 
 Heart Rate: ${bpm} BPM
 Status: ${status}
 
+Message:
 ${message}
+
+Recommended Actions:
+${suggestions}
+
+(This is an automated alert)
     `;
 
     emailMessage.value = fullMessage;
 
-    // ✅ Submit form automatically
+    // ✅ SEND EMAIL
     document.getElementById("emailForm").submit();
 
     alert("✅ Email sent successfully!");
