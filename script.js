@@ -54,23 +54,25 @@ function checkHeartRate() {
         `;
     }
 
-    // ✅ ✅ SEND EMAIL (FULL FIX)
-    emailjs.send("service_gpyijio", "template_t9qrqlk", {
-        heart_rate: bpm,
-        status: status,
-        message: message,
+    // ✅ SEND EMAIL ONLY IF ABNORMAL
+    if (status !== "Normal Heart Rate") {
 
-        // ✅ REQUIRED variables (fixes your error)
-        name: "Heart Monitor System",
-        email: "noreply@test.com",
-        to_email: "hemavarshinis2911@gmail.com"
-    })
-    .then(function(response) {
-        console.log("✅ Email sent successfully!", response);
-        alert("✅ Alert email sent to caretaker!");
-    })
-    .catch(function(error) {
-        console.log("❌ Email failed:", error);
-        alert("❌ Email failed. Check console.");
-    });
+        emailjs.send("service_gpyijio", "template_r02h83p", {
+            heart_rate: bpm,
+            status: status,
+            message: message,
+
+            name: "Heart Monitor System",
+            email: "noreply@test.com",
+            to_email: "hemavarshinis2911@gmail.com"
+        })
+        .then(function(response) {
+            console.log("✅ Email sent successfully!", response);
+            alert("✅ Alert email sent!");
+        })
+        .catch(function(error) {
+            console.log("❌ Email failed:", error);
+            alert("❌ Email failed. Check console.");
+        });
+    }
 }
